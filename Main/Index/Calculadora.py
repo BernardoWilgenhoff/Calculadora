@@ -5,10 +5,11 @@
 # Defino el primer numero con el cual voy a operar
 import math
 
-n1 = 2
-n2 = 3
+n1 = ""
+n2 = ""
 
 def verifico_n1():
+    global n1
     while True:
         try:
             n1 = int(input("Seleccione numero 1 : "))
@@ -21,6 +22,7 @@ def verifico_n1():
         continue
 
 def verifico_n2():
+    global n2
     while True:
         try:
             n2 = int(input("Seleccione numero 2 : "))
@@ -35,13 +37,13 @@ def verifico_n2():
 
 def resultado(): 
     if operacion == "+" :
-        print(suma)
+        print("La suma de ", n1, "+", n2, "=", suma)
     elif operacion == "-":
-        print(resta)
+        print("La resta de ", n1, "-", n2, "=", resta)
     elif operacion == "*":
-        print(multiplicacion)
+        print("La multiplicación de ", n1, "*", n2, "=", multiplicacion)
     elif operacion == "/":
-        print(division)
+        print("La división de ", n1, "/", n2, "=", division)
 
 print("Esta es una calculadora para relizar operaciones simples")
 print("Escriba el primer numero, luego selecione la operación, y luego el siguiente numero")
@@ -49,7 +51,6 @@ print("Escriba el primer numero, luego selecione la operación, y luego el sigui
 verifico_n1()
 operacion = (input("Seleccione una operación: "))
 verifico_n2()
-
 
 suma = n1+n2
 resta = n1-n2
