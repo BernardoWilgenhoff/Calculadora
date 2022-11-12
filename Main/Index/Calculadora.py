@@ -5,10 +5,11 @@
 # Defino el primer numero con el cual voy a operar
 import math
 from tkinter import N, Y
-
+from unittest import result
 
 n1 = ""
 n2 = ""
+numero_1 = ""
 
 def verifico_n1():
     global n1
@@ -38,50 +39,43 @@ def verifico_n2():
 
 
 def resultado(): 
+    global numero_1
     if operacion == "+" :
+        suma = n1+n2
         print("La suma de ", n1, "+", n2, "=", suma)
+        numero_1 = suma
     elif operacion == "-":
+        resta = n1-n2
         print("La resta de ", n1, "-", n2, "=", resta)
+        numero_1 = resta
     elif operacion == "*":
+        multiplicacion = n1*n2
         print("La multiplicación de ", n1, "*", n2, "=", multiplicacion)
+        numero_1 = multiplicacion
     elif operacion == "/":
+        division = n1/n2
         print("La división de ", n1, "/", n2, "=", division)
+        numero_1 = division
 
- 
+
+#Comienza la APP con un msj de bienvenida, ,luego ejecuta
+
 print("Esta es una calculadora para relizar operaciones simples")
 print("Escriba el primer numero, luego selecione la operación, y luego el siguiente numero")
 
-verifico_n1()
-operacion = (input("Seleccione una operación: "))
-verifico_n2()
-
-suma = n1+n2
-resta = n1-n2
-division = n1/n2
-multiplicacion = n1*n2
-resultado()
-restear = input("Si desea resetar oprima Y, si quiere seguir ejecutnado N")
-
 while True: 
-    if restear == N:
-        n1 = (resultado())
+    verifico_n1()
+    operacion = (input("Seleccione una operación: "))
+    verifico_n2()
+    resultado()
+    resetear = input("Si desea resetar oprima Y, si quiere seguir ejecutando N")
+    
+    while resetear == N:
+        n1 = numero_1
+        print(n1)
         operacion = (input("Seleccione una operación: "))
         verifico_n2()
         resultado()
+        resetear = input("Si desea resetar oprima Y, si quiere seguir ejecutando N")
     else:
-        break
-    continue
-
-
-
-
-
-
-#resut = int(resultado())
-#resetear = input("Desea resetear :")
-
-#while True: 
- #   if resetear == Y:
-        #ejecucion_inicial
-  #  else:
-   #    result = n1
+        continue
