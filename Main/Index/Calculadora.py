@@ -4,6 +4,8 @@
 
 # Defino el primer numero con el cual voy a operar
 import math
+from tkinter import N, Y
+
 
 n1 = ""
 n2 = ""
@@ -12,7 +14,7 @@ def verifico_n1():
     global n1
     while True:
         try:
-            n1 = int(input("Seleccione numero 1 : "))
+            n1 = float(input("Seleccione numero 1 : "))
         except ValueError:
             print("Debes escribir un numero")
             continue
@@ -25,7 +27,7 @@ def verifico_n2():
     global n2
     while True:
         try:
-            n2 = int(input("Seleccione numero 2 : "))
+            n2 = float(input("Seleccione numero 2 : "))
         except ValueError:
             print("Debes escribir un numero")
             continue
@@ -45,6 +47,7 @@ def resultado():
     elif operacion == "/":
         print("La división de ", n1, "/", n2, "=", division)
 
+ 
 print("Esta es una calculadora para relizar operaciones simples")
 print("Escriba el primer numero, luego selecione la operación, y luego el siguiente numero")
 
@@ -56,11 +59,29 @@ suma = n1+n2
 resta = n1-n2
 division = n1/n2
 multiplicacion = n1*n2
-
 resultado()
+restear = input("Si desea resetar oprima Y, si quiere seguir ejecutnado N")
+
+while True: 
+    if restear == N:
+        n1 = (resultado())
+        operacion = (input("Seleccione una operación: "))
+        verifico_n2()
+        resultado()
+    else:
+        break
+    continue
 
 
 
 
 
 
+#resut = int(resultado())
+#resetear = input("Desea resetear :")
+
+#while True: 
+ #   if resetear == Y:
+        #ejecucion_inicial
+  #  else:
+   #    result = n1
