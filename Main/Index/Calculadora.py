@@ -10,6 +10,7 @@ from unittest import result
 n1 = ""
 n2 = ""
 numero_1 = ""
+operacion = ""
 
 def verifico_n1():
     global n1
@@ -37,10 +38,20 @@ def verifico_n2():
             break
         continue
 
+def verifico_operacion():
+    global operacion
+    while True:
+        operacion = (input("Seleccione una operación: "))
+        if operacion != "+" "-" "*" "/":
+            print("Debe seleccionar una operación válida + - * /")
+        else:
+            break
+        continue
+
 
 def resultado(): 
     global numero_1
-    if operacion == "+" :
+    if operacion == "+":
         suma = n1+n2
         print("La suma de ", n1, "+", n2, "=", suma)
         numero_1 = suma
@@ -65,7 +76,7 @@ print("Escriba el primer numero, luego selecione la operación, y luego el sigui
 
 while True: 
     verifico_n1()
-    operacion = (input("Seleccione una operación: "))
+    verifico_operacion()
     verifico_n2()
     resultado()
     resetear = input("Si desea resetar oprima Y, si quiere seguir ejecutando N")
@@ -73,7 +84,7 @@ while True:
     while resetear == N:
         n1 = numero_1
         print(n1)
-        operacion = (input("Seleccione una operación: "))
+        verifico_operacion()
         verifico_n2()
         resultado()
         resetear = input("Si desea resetar oprima Y, si quiere seguir ejecutando N")
